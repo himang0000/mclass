@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages { // stages : 실제 자동 빌드를 수행하는 단계 정의
-        stage('Git Checkout') { // 수행 단계 구분
+        stage ('Git Checkout') { // 수행 단계 구분
             steps { // 실제 수행할 명령어 정의
                 // jenkins가 연결된 Git 저장소에서 최신 코드 체크 아웃
                 checkout scm
