@@ -16,7 +16,7 @@ pipeline {
         REMOTE_HOST ="3.106.18.142" //원격(spring) 서버 public ip
 
         REMOTE_DIR ="/home/ec2-user/deploy" //원격 서버 배포
-        SSH_CREDENTIALS_ID ="edc13376-66f0-46ec-a283-12e11b59184c" // RSA Credentials
+        SSH_CREDENTIALS_ID = "edc13376-66f0-46ec-a283-12e11b59184c" // RSA Credentials
     }
 
     stages { // stages : 실제 자동 빌드를 수행하는 단계 정의
@@ -44,7 +44,7 @@ pipeline {
         stage('Copy to Remote Server') {
             steps {
                 //원격 명령 실행
-                sshagent (Credentials: [env.SSH_CREDENTIALS_ID]) {
+                sshagent (credentials: [env.SSH_CREDENTIALS_ID]) {
                     // 배포 디렉토리 생성 (없으면)
                     sh "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${REMOTE_USER}@${REMOTE_HOST} \"mkdir -p ${REMOTE_DIR}\""
                     // JAR과 Dockerfile을 원격 서버로 복사
