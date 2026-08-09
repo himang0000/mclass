@@ -5,7 +5,7 @@ pipeline {
         maven 'maven 3.9.12' //jenkins tools에 등록한 이름과 정확히 일치해야 함.
     }
 
-    enviroment {
+    environment {
         // 배포에 필요한 변수 설정               
         DOCKER_IMAGE = "demo-app" // 도커 이미지
         CONTAINER_NAME = "springboot-container" //도커 컨테이너
